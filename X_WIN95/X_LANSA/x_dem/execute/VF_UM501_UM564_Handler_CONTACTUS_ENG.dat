@@ -1,0 +1,236 @@
+* ---------------------------------------------------------------------------------
+* This is a command handler in framework <<FRAMEWORK>>.
+* It belongs to business object <<BUSINESS_OBJECT_CAPTION>>.
+* Created <<CREATEDDATE>> by <<CREATEDUSER>>
+* ---------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #VF_AC010O) Height(327) Width(587) LayoutManager(#MainLayout)
+
+Define_Com Class(#PRIM_TBLO) Name(#MainLayout) Marginleft(4) Marginright(4) Marginbottom(4) Margintop(4)
+Define_Com Class(#PRIM_TBLO.Column) Name(#LayoutColumn1) Displayposition(1) Parent(#MainLayout)
+Define_Com Class(#PRIM_TBLO.Column) Name(#LayoutColumn2) Displayposition(2) Parent(#MainLayout)
+Define_Com Class(#PRIM_TBLO.Row) Name(#LayoutRow1) Displayposition(1) Parent(#MainLayout) Minheight(250)
+Define_Com Class(#PRIM_TBLO.Row) Name(#LayoutRow2) Displayposition(2) Parent(#MainLayout) Minheight(440) Height(440)
+Define_Com Class(#PRIM_TBLO.Row) Name(#LayoutRow3) Displayposition(3) Parent(#MainLayout) Minheight(400)
+
+Define_Com Class(#PRIM_TBLO.Item) Name(#LayoutItem1) Manage(#AddressDetailsPanel) Parent(#MainLayout) Row(#LayoutRow1) Column(#LayoutColumn1)
+Define_Com Class(#PRIM_TBLO.Item) Name(#LayoutItem2) Manage(#ContactDetailsPanel) Parent(#MainLayout) Row(#LayoutRow2) Column(#LayoutColumn1)
+Define_Com Class(#PRIM_TBLO.Item) Name(#LayoutItem3) Manage(#LocationDetailsPanel) Parent(#MainLayout) Row(#LayoutRow3) Column(#LayoutColumn1)
+
+Define_Com Class(#PRIM_TBLO) Name(#AddressLayout) Marginbottom(8) Marginleft(8) Marginright(8) Margintop(8)
+Define_Com Class(#PRIM_TBLO.Row) Name(#Layout1Row1) Displayposition(1) Parent(#AddressLayout)
+Define_Com Class(#PRIM_TBLO.Column) Name(#Layout1Column1) Displayposition(1) Parent(#AddressLayout)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item1) Alignment(TopLeft) Column(#Layout1Column1) Manage(#CompanyName) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item2) Alignment(TopLeft) Column(#Layout1Column1) Manage(#EmailAddress) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down) Marginleft(20)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item3) Alignment(TopLeft) Column(#Layout1Column1) Manage(#FAXNumber) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down) Marginleft(20)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item4) Alignment(TopLeft) Column(#Layout1Column1) Manage(#PhoneNumber) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down) Marginleft(20)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item5) Alignment(TopLeft) Column(#Layout1Column1) Manage(#AddressLine2) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down) Marginleft(40)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item6) Alignment(TopLeft) Column(#Layout1Column1) Manage(#AddressLine1) Parent(#AddressLayout) Row(#Layout1Row1) Sizing(FitToWidth) Flow(Down) Marginleft(20)
+
+Define_Com Class(#PRIM_TBLO) Name(#ContactLayout) Marginbottom(8) Marginleft(8) Marginright(8) Margintop(8)
+Define_Com Class(#PRIM_TBLO.Row) Name(#Layout1Row2) Displayposition(1) Parent(#ContactLayout)
+Define_Com Class(#PRIM_TBLO.Column) Name(#Layout1Column2) Displayposition(1) Parent(#ContactLayout)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item7) Alignment(TopLeft) Column(#Layout1Column2) Manage(#ContactUs) Parent(#ContactLayout) Row(#Layout1Row2) Sizing(FitToWidth) Flow(Down)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item8) Alignment(TopLeft) Column(#Layout1Column2) Manage(#ContacterName) Parent(#ContactLayout) Row(#Layout1Row2) Sizing(FitToWidth) Flow(Down)
+Define_Com Class(#PRIM_TBLO.Item) Name(#ContactLayoutItem1) Alignment(TopLeft) Column(#Layout1Column2) Manage(#ContacterPhoneNumber) Parent(#ContactLayout) Row(#Layout1Row2) Sizing(FitToWidth) Flow(Down)
+Define_Com Class(#PRIM_TBLO.Item) Name(#ContactLayoutItem2) Alignment(TopLeft) Column(#Layout1Column2) Manage(#ContacterEmail) Parent(#ContactLayout) Row(#Layout1Row2) Flow(Down) Sizing(FitToWidth)
+Define_Com Class(#PRIM_TBLO.Item) Name(#ContactLayoutItem3) Alignment(TopLeft) Column(#Layout1Column2) Manage(#ContacterMessage) Parent(#ContactLayout) Row(#Layout1Row2) Sizing(FitToWidth) Flow(Down) Margintop(8)
+Define_Com Class(#PRIM_TBLO.Item) Name(#ContactLayoutItem4) Column(#Layout1Column2) Manage(#ContactSendButtton) Parent(#ContactLayout) Row(#Layout1Row2) Marginbottom(4) Flow(Down) Margintop(8) Alignment(TopLeft) Marginleft(26) Sizing(FitToWidth)
+
+Define_Com Class(#PRIM_TBLO) Name(#LocationLayout) Marginbottom(8) Marginleft(8) Marginright(8) Margintop(8)
+Define_Com Class(#PRIM_TBLO.Row) Name(#Layout1Row3) Displayposition(1) Parent(#LocationLayout)
+Define_Com Class(#PRIM_TBLO.Column) Name(#Layout1Column3) Displayposition(1) Parent(#LocationLayout)
+Define_Com Class(#PRIM_TBLO.Item) Name(#Layout1Item9) Alignment(TopCenter) Column(#Layout1Column3) Manage(#Directions) Parent(#LocationLayout) Row(#Layout1Row3) Sizing(FitToWidth) Flow(Down)
+Define_Com Class(#PRIM_TBLO.Item) Name(#LocationLayoutItem1) Alignment(TopCenter) Column(#Layout1Column3) Manage(#DirectionMap) Parent(#LocationLayout) Row(#Layout1Row3) Flow(Down)
+
+Define_Com Class(#Prim_Panl) Name(#AddressDetailsPanel) Displayposition(3) Parent(#COM_OWNER) Tabposition(1) Height(250) Top(4) Left(4) Width(268) Layoutmanager(#AddressLayout)
+
+Define_Com Class(#Prim_Panl) Name(#ContactDetailsPanel) Displayposition(2) Parent(#COM_OWNER) Tabposition(2) Height(440) Top(254) Left(4) Width(268) Layoutmanager(#ContactLayout)
+
+Define_Com Class(#Prim_Panl) Name(#LocationDetailsPanel) Displayposition(1) Parent(#COM_OWNER) Tabposition(3) Height(400) Top(694) Left(4) Width(268) Layoutmanager(#LocationLayout)
+
+Define_Com Class(#Prim_vs.Style) Name(#BorderRight) Borderright(1)
+Define_Com Class(#Prim_vs.Style) Name(#BorderTop) Bordertop(1)
+Define_Com Class(#Prim_vs.Style) Name(#BorderBottom) Borderbottom(1)
+Define_Com Class(#Prim_vs.Style) Name(#MouseOver) Bold(True)
+
+* The company details
+Define_Com Class(#PRIM_MD.Label) Name(#CompanyName) Caption('Company Name') Displayposition(1) Parent(#AddressDetailsPanel) Tabposition(1) Themedrawstyle('Heading1') Width(252) Icon('group') Iconmarginright(8) Left(8) Top(8) Iconheight(36)
+Define_Com Class(#PRIM_MD.Label) Name(#AddressLine1) Caption('Address Line 1') Displayposition(2) Parent(#AddressDetailsPanel) Tabposition(6) Themedrawstyle('Heading3') Width(232) Top(44) Left(28) Icon('location_city') Iconheight(16) Iconmarginright(4) Iconopacity(50)
+Define_Com Class(#PRIM_MD.Label) Name(#AddressLine2) Caption('Address Line 2') Displayposition(3) Parent(#AddressDetailsPanel) Tabposition(5) Themedrawstyle('Heading3') Top(80) Width(212) Left(48) Iconcolor(Theme500)
+Define_Com Class(#PRIM_MD.Label) Name(#PhoneNumber) Caption('Phone Number') Displayposition(4) Parent(#AddressDetailsPanel) Tabposition(4) Themedrawstyle('Heading3') Top(116) Width(232) Left(28) Icon('phone') Iconheight(16) Iconmarginright(4) Iconopacity(60) Mouseoverstyle(#MouseOver)
+Define_Com Class(#PRIM_MD.Label) Name(#FAXNumber) Caption('FAX Number') Displayposition(5) Parent(#AddressDetailsPanel) Tabposition(3) Themedrawstyle('Heading3') Width(232) Top(152) Left(28) Icon('settings_phone') Iconheight(16) Iconmarginright(4) Iconopacity(60)
+Define_Com Class(#PRIM_MD.Label) Name(#EmailAddress) Caption('Email Adddress') Displayposition(6) Parent(#AddressDetailsPanel) Tabposition(2) Themedrawstyle('Heading3') Top(188) Width(232) Left(28) Icon('email') Iconheight(16) Iconmarginright(4) Iconopacity(60) Iconcolor(104:104:104) Mouseoverstyle(#MouseOver)
+
+* The contact details
+Define_Com Class(#PRIM_MD.Label) Name(#ContactUs) Caption(*MTXTUF_CONTACT_01) Displayposition(1) Parent(#ContactDetailsPanel) Tabposition(1) Themedrawstyle('Heading1') Width(252) Icon('contact_mail') Iconmarginright(8) Left(8) Top(8) Iconheight(36)
+Define_Com Class(#Prim_md.Edit) Name(#ContacterName) Parent(#ContactDetailsPanel) Displayposition(2) Tabposition(2) Top(44) Caption(*MTXTUF_CONTACT_02) Width(252) Height(69) Icon('person') Iconheight(16) Iconopacity(50) Left(8) Clearbutton(True) Maxlength(256)
+Define_Com Class(#Prim_md.Edit) Name(#ContacterPhoneNumber) Parent(#ContactDetailsPanel) Displayposition(3) Tabposition(3) Caption(*MTXTUF_CONTACT_03) Top(113) Width(252) Height(69) Icon('phone') Iconheight(16) Iconopacity(50) Left(8) Clearbutton(True) Maxlength(50)
+Define_Com Class(#Prim_md.Edit) Name(#ContacterEmail) Parent(#ContactDetailsPanel) Displayposition(4) Tabposition(4) Caption(*MTXTUF_CONTACT_04) Top(182) Height(69) Width(252) Icon('email') Iconheight(16) Iconopacity(50) Left(8) Clearbutton(True) Maxlength(256)
+Define_Com Class(#PRIM_MD.Edit) Name(#ContacterMessage) Caption(*MTXTUF_CONTACT_05) Displayposition(5) Height(130) Multiline(True) Parent(#ContactDetailsPanel) Tabposition(5) Top(259) Spellcheck(True) Width(252) Icon('message') Iconheight(16) Iconopacity(50) Left(8) Appearance(TextFieldArea) Maxlength(20000)
+Define_Com Class(#PRIM_MD.RaisedButton) Name(#ContactSendButtton) Caption(*MTXTUF_CONTACT_06) Displayposition(6) Parent(#ContactDetailsPanel) Tabposition(6) Themedrawstyle('MediumTitle') Width(226) Top(397) Left(34) Icon('send') Iconopacity(70) Iconmarginright(5) Height(32)
+
+* The Googlr map
+Define_Com Class(#PRIM_MD.Label) Name(#Directions) Caption(*MTXTUF_CONTACT_07) Displayposition(1) Parent(#LocationDetailsPanel) Tabposition(2) Themedrawstyle('Heading1') Width(252) Icon('directions') Left(8) Top(8) Iconheight(36)
+Define_Com Class(#PRIM_WEB.Page) Name(#DirectionMap) Description('Web Page') Displayposition(2) Parent(#LocationDetailsPanel) Tabposition(1) Tabstop(False) Width(252) Top(44) Height(384) Left(8)
+
+* -----------------------------------------------------------------------------------------------------------
+Define_Com Class(#Prim_boln) Name(#ViewisEstablished)
+Define_Com Class(#Prim_dc.UnicodeString) Name(#PhoneNumberToCallonClick)
+
+* -----------------------------------------------------------------------------------------------------------
+Mthroutine Name(uInitialize) Options(*REDEFINE)
+
+* =============================
+* Alter to your company details
+* =============================
+
+#CompanyName := "Your Company's Name"
+#AddressLine1 := "2001 Butterfield Road, Suite 102"
+#AddressLine2 := "Downers Grove, IL, 60515, USA"
+#PhoneNumber := "Tel: +1 630 874 7000"
+#PhoneNumberToCallonClick := "+(1)6308747000"
+#FAXNumber := "FAX: +1 630 874 7001"
+#EmailAddress := "info@lansa.com"
+
+* Build the Googlr Maps URL from the address details previously defined.
+* In this case the address is a fixed location so one way to get the map without setting up a Google Maps API key
+* is to locate the address in Google Maps and use the "Share or embed map" option to generate the src= string for
+* an iframe. The one used here is for "2001 Butterfield Road, Suite 102 owners Grove, IL, 60515, USA."
+
+#DirectionMap.Source := "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2972.9354179244756!2d-88.03487694872814!3d41.82968877631903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e52225f632459%3A0xe931bb2937ed589b!2s2001+Butterfield+Rd+%23102%2C+Downers+Grove%2C+IL+60515%2C+USA!5e0!3m2!1sen!2sau!4v1544652893589"
+
+* Layout
+If (#AVFRAMEWORKMANAGER.avSmallScreen)
+#AddressDetailsPanel.Styles.Remove Style(#BorderRight)
+#AddressDetailsPanel.Styles.Add Style(#BorderBottom)
+#LayoutColumn2.Width := 0
+Set Com(#LayoutItem2) Row(#LayoutRow2) Column(#LayoutColumn1)
+Set Com(#LayoutItem3) Columnspan(1)
+Set Com(#LayoutRow2) Minheight(440) Height(440)
+Else
+#AddressDetailsPanel.Styles.Remove Style(#BorderBottom)
+#AddressDetailsPanel.Styles.Add Style(#BorderRight)
+Set Com(#LayoutColumn2) Width(1) Units(Proportion)
+Set Com(#LayoutItem2) Row(#LayoutRow1) Column(#LayoutColumn2)
+Set Com(#LayoutItem3) Columnspan(2)
+Set Com(#LayoutRow2) Minheight(0) Height(0)
+Endif
+#LocationDetailsPanel.Styles.Add Style(#BorderTop)
+
+* Reset any entry fields and remove their errors.
+#COM_OWNER.ClearContactDetails
+
+* Because of the Google Map 
+#COM_OWNER.avContentNeedsShielding := True 
+
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#ContacterName.Changed)
+#COM_OWNER.ValidateContacterName
+Endroutine
+
+Mthroutine Name(ValidateContacterName)
+#ContacterName.ClearError
+If (#ContacterName.Value.Trim = "")
+#ContacterName.ShowError Errortext(*MTXTUF_CONTACT_08)
+Endif
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#ContacterEmail.Changed)
+#COM_OWNER.ValidateContacterEmail
+Endroutine
+
+Mthroutine Name(ValidateContacterEmail)
+#ContacterEmail.ClearError
+If (#ContacterEmail.Value.IsValidEmail.Not)
+#ContacterEmail.ShowError Errortext(*MTXTUF_CONTACT_09)
+Endif
+Endroutine
+
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#ContacterPhoneNumber.Changed)
+#COM_OWNER.ValidateContacterPhoneNumber
+Endroutine
+
+Mthroutine Name(ValidateContacterPhoneNumber)
+#ContacterPhoneNumber.ClearError
+If (#ContacterPhoneNumber.Value.Trim = "")
+#ContacterPhoneNumber.ShowError Errortext(*MTXTUF_CONTACT_10)
+Endif
+Endroutine
+
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#ContacterMessage.Changed)
+#COM_OWNER.ValidateContacterMessage
+Endroutine
+
+Mthroutine Name(ValidateContacterMessage)
+#ContacterMessage.ClearError
+If (#ContacterMessage.Value.Trim = "")
+#ContacterMessage.ShowError Errortext(*MTXTUF_CONTACT_11)
+Endif
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Mthroutine Name(ClearContactDetails)
+#ContacterName.ClearError
+#ContacterEmail.ClearError
+#ContacterPhoneNumber.ClearError
+#ContacterMessage.ClearError
+#ContacterName := ""
+#ContacterEmail := ""
+#ContacterPhoneNumber := ""
+#ContacterMessage := ""
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#ContactSendButtton.Click)
+#COM_OWNER.SendContactRequest
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Mthroutine Name(SendContactRequest)
+Define_Com Class(<<SERVER_MODULE>>.HandleContactRequest) Name(#HandleContactRequest)
+
+* Validate all input os present and correct
+#COM_OWNER.ValidateContacterName
+#COM_OWNER.ValidateContacterEmail
+#COM_OWNER.ValidateContacterMessage
+#COM_OWNER.ValidateContacterPhoneNumber
+
+* If anything has an error get out now without submitting
+If ((#ContacterName.HasError) OrIf (#ContacterEmail.HasError) OrIf (#ContacterMessage.HasError) OrIf (#ContacterPhoneNumber.HasError))
+Return
+Endif
+
+* Submit the details to the server
+#HandleContactRequest.Execute Name(#ContacterName) Email(#ContacterEmail) Phonenumber(#ContacterPhoneNumber) Message(#ContacterMessage) 
+
+* Handle a good or bad result
+Evtroutine Handling(#HandleContactRequest.Completed)
+#AVFRAMEWORKMANAGER.avIssueMessage Text(*MTXTUF_CONTACT_012) AutoClear(True) Requester(#COM_OWNER)
+#COM_OWNER.ClearContactDetails
+Endroutine
+
+Evtroutine Handling(#HandleContactRequest.Failed) Handled(#Handled)
+#Handled := #AVFRAMEWORKMANAGER.avHandleServerError( #COM_OWNER )
+Endroutine
+
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#PhoneNumber.Click)
+#sys_web.navigate Url("tel:" + #PhoneNumberToCallonClick) Target(New)
+Endroutine
+
+* -----------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#EmailAddress.Click)
+#sys_web.navigate Url("mailto:" + #EmailAddress) Target(New)
+Endroutine
+
+
+End_Com

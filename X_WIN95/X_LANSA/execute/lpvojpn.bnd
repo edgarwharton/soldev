@@ -1,0 +1,213 @@
+PictureFileExtension=.bmp,.tif,.ico,.cur
+Free1=1
+Free2=2
+Free3=3
+StrFindErr=文字列が見つかりません
+MaxLineLengthErr='貼り付け' の処理によって行の最大桁数を超えます:
+MaxLineCountErr='貼り付け' の処理によって最大行数を超えます:
+OperationAborted=オペレーションは異常終了しました。
+DriverMissing=システム パスに以下のドライバが見つかりません:
+Label=<テキスト>
+HtmlContainer=HTML コンテナ
+WebEmbeddedPage=Web ページ
+WebEmbeddedControl=Web コントロール
+
+********************************************************************
+*** Image List Specific Strings ************************************
+********************************************************************
+MaxImagesErr=処理によって最大イメージ数 &1 を超えます。
+
+********************************************************************
+*** LpVoGraph Specific Strings *************************************
+********************************************************************
+GraphTitle=タイトル
+GraphTitleX=X タイトル
+GraphTitleY=Y タイトル
+Directories=ディレクトリ
+InvalidGraphType=無効なグラフ タイプ (例:円グラフ)
+Graph.Unsupported=グラフ サポートなし
+
+Status.Memo.ReplaceAll=&1 個の &2 を置換しました。
+
+
+**
+MenuAction.CutValue=切り取り
+MenuAction.CopyValue=コピー
+MenuAction.PasteValue=貼り付け
+MenuAction.PrintValue=印刷
+MenuAction.ShowHelp=ヘルプの表示
+MenuAction.PasteDefault=省略値の貼り付け
+MenuAction.ShowProperties=プロパティの表示
+MenuAction.PasteCurrentDate=日付の貼り付け
+MenuAction.PasteCurrentTime=時間の貼り付け
+MenuAction.PasteCurrentUser=現行ユーザーの貼り付け
+
+Goto.OK=OK
+Goto.Cancel=キャンセル
+Goto.Text=行指定:
+Goto.Title=行指定
+
+Explorer.DeskTop=デスクトップ
+Explorer.Network=ネットワーク コンピュータ
+Explorer.GlobalNetwork=グローバル ネットワーク
+Explorer.MyComputer=マイ コンピュータ
+Explorer.OnString=オン
+Explorer.PathFailure=パスが見つかりません
+
+Memo.CollapsedItems=&1 項目縮小されています。
+Memo.URLHint=CTRL + click でリンクをフォロー
+
+Prop.NotAvailableCaption=なし
+
+HelpContext.NoHelpFile=このコンポーネントに関連しているヘルプ ファイルがありません
+
+ComControlContainer.ErrorSavingPersistProps=ActiveX コントロールの状況の保存中にエラーが発生しました。\n 状況が保存されません。
+
+*
+FloatDockTabMenu.TabLocation=タブの位置
+FloatDockTabMenu.TabLocationTop=上
+FloatDockTabMenu.TabLocationBottom=下
+FloatDockTabMenu.TabLocationLeft=左
+FloatDockTabMenu.TabLocationRight=右
+*
+FloatDockTabMenu.TabLocation.Tip=タブ位置の切り替え
+
+********************************************************************
+*** LpVocalendar Specific Strings **********************************
+********************************************************************
+
+Calendar.TodayCaption=今日
+Calendar.PrevMonth.Hint=前月
+Calendar.PrevYear.Hint=前年
+Calendar.NextMonth.Hint=次月
+Calendar.NextYear.Hint=次年
+
+********************************************************************
+*** LpVoException Specific Messages ********************************
+********************************************************************
+
+Exception.TreeSetParentInvalidParent=SetParentItem に渡されたツリー アイテムは SetParentItem のターゲットと同じツリーに属しません。
+Exception.TreeSetParentInvalidParent.Id=1
+Exception.TreeSetParentNotUnlevelled=SetParentItem はツリー ViewStyle Levelled には無効です
+Exception.TreeSetParentNotUnlevelled.Id=2
+Exception.TreeSetParentSelfInvalid=SetParentItem に渡されたツリー アイテムは SetParentItem のターゲットと同じにはできません。
+Exception.TreeSetParentSelfInvalid.Id=3
+Exception.TreeAssignRowColValueInvalid=Assign はツリー ViewStyle Levelled には使用することはできません。
+Exception.TreeAssignRowColValueInvalid.Id=4
+Exception.TreeDesignInterfaceNotSupported=ツリー デザインは PRIM_TREE.ITreeDesign インターフェイスをサポートしません。
+Exception.TreeDesignInterfaceNotSupported.Id=9
+Exception.TileDesignInterfaceNotSupported=タイル デザインは PRIM_TILE.ITileDesign インターフェイスをサポートしません。
+Exception.TileDesignInterfaceNotSupported.Id=17
+Exception.CarouselDesignInterfaceNotSupported=カルーセル デザインは PRIM_CARO.ICarouselDesign インターフェイスをサポートしません。
+Exception.CarouselDesignInterfaceNotSupported.Id=16
+Exception.BookDesignInterfaceNotSupported=ブック デザインは PRIM_BOOK.IBookDesign インターフェイスをサポートしません。
+Exception.BookDesignInterfaceNotSupported.Id=5
+Exception.DashboardDesignInterfaceNotSupported=ダッシュボードデザインは PRIM_DASH.IDashboardDesign インターフェイスをサポートしません。
+Exception.DashboardDesignInterfaceNotSupported.Id=18
+Exception.AnimationBeginInvalidParent=アニメーション項目の無効な親アニメーション
+Exception.AnimationBeginInvalidParent.Id=10
+Exception.AnimationBeginInvalidComponent=アニメーション項目の無効なコンポーネント
+Exception.AnimationBeginInvalidComponent.Id=11
+Exception.AnimationBeginInvalidSibling=切り替えアニメーション項目のソースとターゲット コンポーネントは同じ親コンポーネントに属しません。
+Exception.AnimationBeginInvalidSibling.Id=12
+Exception.AnimationBeginInvalidOperation=アニメーション操作の開始に失敗しました。このアニメーションは既に実行されているアニメーションと競合している可能性があります。
+Exception.AnimationBeginInvalidOperation.Id=13
+Exception.TileITableItemNotSupported=タイル項目は PRIM_TILE.ITileItem インターフェイスをサポートしません。
+Exception.TileITableItemNotSupported.Id=14
+Exception.TileNameNotFound=コンポーネント &1 が見つかりません。
+Exception.TileNameNotFound.Id=15
+Exception.DropDownDesignInterfaceNotSupported.Id=19
+Exception.DropDownDesignInterfaceNotSupported=ドロップダウン デザインはインターフェース PRIM_DROP.IDropDownDesign をサポートしません。
+
+********************************************************************
+*** Tab Specific Strings		  **********************************
+********************************************************************
+
+Tab.IncreaseDockGroup.Caption=グループを増やす
+Tab.DecreaseDockGroup.Caption=グループを減らす
+Tab.LayoutPriority.Caption=最大レイアウト
+Tab.AutoHide.Caption=自動的に隠す
+Tab.Hide.Caption=閉じる
+Tab.ConfigureButtons.Hint=ページ設定
+Tab.ShowMoreButtons.Caption=ボタンをより多く表示
+Tab.ShowFewerButtons.Caption=ボタンをより少なく表示
+Tab.AddOrRemoveButtons.Caption=ページを追加または削除
+Tab.PageCloseButton.Hint=ページを閉じる
+
+********************************************************************
+*** Message Box Specific Strings ***********************************
+********************************************************************
+
+MessageBox.Yes=はい(&Y)
+MessageBox.No=いいえ(&N)
+MessageBox.YesToAll=全てはい(&A)
+MessageBox.NoToAll=全ていいえ(&L)
+MessageBox.Cancel=キャンセル(&C)
+
+Win32.ControlNotAvailable=プリミティブ &1 はWin32では使用できません
+
+Udc.Carousel.DesignRequired=PRIM_CAROは、コンテンツにPRIM_CARO.ICarouselDesignを導入する再利用可能パーツが必要です。
+Udc.Tree.DesignRequired=PRIM_TREEは、コンテンツにPRIM_TREE.ITreeDesignを導入する再利用可能パーツが必要です。
+Udc.Book.DesignRequired=PRIM_BOOKは、コンテンツにPRIM_BOOK.IBookDesignを導入する再利用可能パーツが必要です。
+Udc.Tile.DesignRequired=PRIM_TILEは、コンテンツにPRIM_TILE.ITileDesignを導入する再利用可能パーツが必要です。
+Udc.Dashboard.DesignRequired=PRIM_DASHは、コンテンツにPRIM_DASH.IDashboardDesignを導入する再利用可能パーツが必要です。
+Udc.DropDown.DesignRequired=PRIM_DROP は、コンテンツに PRIM_DROP.IDropDesign を実装した再利用可能パーツが必要です。
+
+********************************************************************
+*** Ribbon Strings               ***********************************
+********************************************************************
+
+Ribbon.Minimize=リボンの最小化
+Ribbon.ShowBelow=クイック アクセス ツールバーをリボンの下に表示
+Ribbon.ShowAbove=クイック アクセス ツールバーをリボンの上に表示
+
+********************************************************************
+*** Theme Strings                ***********************************
+********************************************************************
+
+Theme.LightTitle=テーマ 淡いタイトル
+Theme.MediumTitle=テーマ 中間のタイトル
+Theme.DarkTitle=テーマ 濃いタイトル
+Theme.MouseOver=テーマ マウスオーバー
+Theme.MouseOverDark=テーマ マウスオーバー 濃い
+Theme.Selected=テーマ 選択済み
+Theme.50=50
+Theme.100=100
+Theme.200=200
+Theme.300=300
+Theme.400=400
+Theme.500=500
+Theme.600=600
+Theme.700=700
+Theme.800=800
+Theme.900=900
+Theme.A100=A100
+Theme.A200=A200
+Theme.A400=A400
+Theme.A700=A700
+Theme.Button=ボタン
+Theme.Column=列
+Theme.Inactive=非アクティブ
+Theme.Disabled=無効
+Theme.Text=テキスト
+Theme.Border=枠線
+Theme.Line=線
+Transparent=透明
+Theme.AccentLight=アクセント ライト
+Theme.AccentMedium=アクセント ミディアム
+Theme.AccentDark=アクセント ダーク
+Theme.SuccessLight=成功 ライト
+Theme.SuccessMedium=成功 ミディアム
+Theme.SuccessDark=成功 ダーク
+Theme.ErrorLight=エラー ライト
+Theme.ErrorMedium=エラー ミディアム
+Theme.ErrorDark=エラー ダーク
+Theme.SecondaryText=セカンダリ テキスト
+
+Card.Caption=プライマリ テキスト
+Card.Secondary=セカンダリ テキスト
+Card.Tertiary=ターシャリー テキスト
+
+Navigation.Help=ビューの追加
+List.Help=フィールドをここにドロップして、データ テーブルを作成
+List.Filter=フィルター

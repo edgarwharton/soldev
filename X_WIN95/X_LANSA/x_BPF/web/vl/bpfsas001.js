@@ -1,0 +1,2 @@
+﻿LANSA.addComponent({id:"BPFSAS001",nm:"BPFServerApplicationStrings",ot:"rp",tp:"Reusable Part",pt:"ap",de:"Server Side Application Strings",tl:15000300},function(l,oI,u){var cO=l.rC(oI,{an:"BPFSLR000",mt:{BuildDefaults:{}},co:function(){cO.aN.call(this);}});cO.mthLOAD=function(p0){var r=l.cR(this,cO,"Load");var P0=r.cP("FORISOCODE","PRIM_DC","UnicodeString");P0.set(p0);{r.ln=8;this.mthSETSTRINGS("BPFALR001",P0.get());}r.ln=10;return r.rN(this);};cO.mthBUILDDEFAULTS=function(){var r=l.mR(this,cO,"BuildDefaults",13);
+r.ln=13;{}r.ln=17;r.e();};},{rc:["BPFSLR000"]});

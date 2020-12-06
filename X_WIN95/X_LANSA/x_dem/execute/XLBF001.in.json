@@ -1,0 +1,669 @@
+{
+  "logFile": "",
+  "lists": [
+    {
+      "id": "LXLB0001",
+      "name": "package: integration-lib",
+      "objects": [
+        {
+          "id": "XLBA0081",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0087",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0090",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0106",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0078",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0070",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0075",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0091",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0113",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0031",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0051",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0008",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0044",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0064",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0021",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0024",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0073",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0005",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0042",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0049",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0058",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0061",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0067",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0010",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0013",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XLBA0079",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0118",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0001",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0082",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0115",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0063",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0038",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0060",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0066",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0076",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0085",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XLBA0030",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0047",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0014",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0018",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0088",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0109",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0033",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0040",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0029",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0036",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0105",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0016",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0050",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0069",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0072",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0086",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0089",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0107",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0032",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0048",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0057",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0083",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0112",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0092",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0116",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0019",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0043",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0045",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0065",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XLBA0068",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0007",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0015",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0023",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0077",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0117",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0004",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0080",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0020",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0037",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0059",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0062",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0071",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0104",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0114",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0052",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0074",
+          "type": "REUSABLEPART",
+          "platform": "ALL"
+        },
+        {
+          "id": "XLBA0002",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0039",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0034",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0056",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0084",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0035",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0041",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0108",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0003",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0011",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0022",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0028",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        }
+      ]
+    },
+    {
+      "id": "LXLB0003",
+      "name": "package: ex-integration-lib",
+      "objects": [
+        {
+          "id": "XEX00033",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00069",
+          "type": "FILE"
+        },
+        {
+          "id": "XEX00028",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00002",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00006",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00019",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XEX00030",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00039",
+          "type": "WEBDIALOG"
+        },
+        {
+          "id": "XEX00043",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00058",
+          "type": "BITMAP"
+        },
+        {
+          "id": "XEX00024",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00042",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00063",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00067",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00031",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00064",
+          "type": "FILE"
+        },
+        {
+          "id": "XEX00005",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00036",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XEX00068",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XEX00009",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00034",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00037",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00055",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XEX00022",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00025",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00040",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00061",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00065",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00004",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00057",
+          "type": "BITMAP"
+        },
+        {
+          "id": "XEX00059",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00032",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00062",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00027",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00071",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00007",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00023",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00066",
+          "type": "WEBDIALOG"
+        },
+        {
+          "id": "XEX00008",
+          "type": "EXTERNALRESOURCE",
+          "path": "internal-demo-util.js",
+          "folder": "PARTITIONVLWEB"
+        },
+        {
+          "id": "XEX00010",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00038",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00041",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00070",
+          "type": "FORM"
+        },
+        {
+          "id": "XEX00035",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00054",
+          "type": "WEBDIALOG"
+        },
+        {
+          "id": "XEX00056",
+          "type": "BITMAP"
+        },
+        {
+          "id": "XEX00060",
+          "type": "FIELD"
+        }
+      ]
+    }
+  ]
+}

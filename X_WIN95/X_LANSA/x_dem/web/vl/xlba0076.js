@@ -1,0 +1,1 @@
+﻿LANSA.addComponent({id:"XLBA0076",nm:"XWS_PayPal_TransactionBase",ot:"rp",tp:"Reusable Part",de:"[pkg-integration-lib]",tl:14020401},function(l,oI,u){var cO=l.rC(oI,{an:"XLBA0075",co:function(){cO.aN.call(this);}});},{rc:["XLBA0075"]});

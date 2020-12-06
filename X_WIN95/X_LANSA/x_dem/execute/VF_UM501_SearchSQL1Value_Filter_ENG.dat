@@ -1,0 +1,189 @@
+* ---------------------------------------------------------------------------------------------------
+* This is a view filter in framework <<FRAMEWORK>>.
+* It belongs to business object <<BUSINESS_OBJECT_CAPTION>>.
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Windows desktop style controls.<<COND_NOT_MD>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Material Design style controls.<<COND_MD>> 
+*
+* Note 1
+* The server module associated with this filter may need to be modified if this filter uses a file defined to lansa as an OTHER file, and the actual field name in the file is different from the name given to the field by LANSA. See the server module for details.
+* 
+* Note 2.
+* This filter will need to be tested for its performance impact before being deployed.
+* You may find that certain combinations of search values result in a big performance load on the server. 
+*
+* In this usage diagram it is highlighted in GREEN:
+* Annotate Img=%partdir%VF_UM501_SearchSQL_Slide1.PNG width=1000 height=339
+* Note: If you can’t see the diagram, go to the Home tab, then move across into the Design area.
+*       Click on the bottom right image that has the hint “Toggle Annotation Enabled/Disabled state”.
+* ---------------------------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #VF_AC007O) Height(182) Width(215)
+* ================================================================================
+* Simple Field, Group and Condition Definitions
+* ================================================================================
+Def_List Name(#SearchFields) Fields(#UF_ELFLD #UF_ELDES #UF_ELFLN #UF_ELFTP #UF_ELFUNI) Type(*WORKING) Entrys(10)
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#Prim_panl) Name(#DataItemPanel) Parent(#COM_OWNER) Displayposition(1) Tabposition(1) Height(150) Left(0) Top(0) Width(215) Horizontalscroll(True) Verticalscroll(True) Tabstop(False)  Layoutmanager(#DataPanelAttachment)
+Define_Com Class(#Prim_panl) Name(#ButtonPanel) Parent(#COM_OWNER) Displayposition(2) Tabposition(2) Left(0) Top(150) Width(215) Layoutmanager(#ButtonPanelAttachmenthManager) Height(32) Tabstop(False)
+Define_Com Class(#PRIM_ATLI) Name(#AttachDataItemPanel) Manage(#DataItemPanel) Parent(#MainPanelAttachmentManager) Attachment(Center)  Marginright(4) Marginleft(4)
+Define_Com Class(#PRIM_ATLI) Name(#AttachButtonPanel) Manage(#ButtonPanel) Parent(#MainPanelAttachmentManager) Attachment(Bottom)  Marginright(4) Marginleft(4)
+* ---------------------------------------------------------------------------------
+Define_Com Class(#PRIM_ATLM) Name(#DataPanelAttachment)
+Define_Com Class(#PRIM_ATLI) Name(#DataPanelAttachmentItem1) Attachment(Top) Parent(#DataPanelAttachment)
+Define_Com Class(#PRIM_ATLI) Name(#DataPanelAttachmentItem2) Attachment(Top) Manage(#Label_Instruction) Parent(#DataPanelAttachment)
+Define_Com Class(#PRIM_ATLI) Name(#DataPanelAttachmentItem3) Attachment(Center) Manage(#ListofSearchFieldNames) Parent(#DataPanelAttachment)
+Define_Com Class(#PRIM_ATLI) Name(#DataPanelAttachmentItem4) Attachment(Top) Manage(#uSearchFor) Parent(#DataPanelAttachment)
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#Prim_atlm) Name(#ButtonPanelAttachmenthManager)
+Define_Com Class(#Prim_atli) Name(#ButtonPanelAttachmentSave) Parent(#ButtonPanelAttachmenthManager) Manage(#Search_Button) Attachment(Right) Marginright(4) Margintop(4) Marginbottom(4)
+Define_Com Class(#PRIM_ATLI) Name(#AttachItem1) Manage(#CLEAR_LIST) Parent(#ButtonPanelAttachmenthManager) Attachment(Left)
+
+* ---------------------------------------------------------------------------------
+
+* Define the button and the check box
+
+<<COND_MD>>Define_Com Class(#PRIM_md.RaisedButton) Name(#Search_Button) Parent(#ButtonPanel) Caption(*MTXTUF_SEARCHUSERS) Displayposition(1) Tabposition(1) Left(449) Top(4) Buttondefault(True)
+<<COND_NOT_MD>>Define_Com Class(#Prim_phbn) Name(#Search_Button) Parent(#ButtonPanel) Caption(*MTXTUF_SEARCHUSERS) Displayposition(1) Tabposition(1) Height(24) Left(131) Top(4) Buttondefault(True)
+
+<<COND_MD>>Define_Com Class(#PRIM_MD.CheckBox) Name(#CLEAR_LIST) Caption(*MTXTUF_CLEAR_LIST) Parent(#ButtonPanel) Displayposition(2) Tabposition(2) Checkstate(Checked) Left(0) Top(0) Height(44)
+<<COND_NOT_MD>>Define_Com Class(#PRIM_CKBX) Name(#CLEAR_LIST) Caption(*MTXTUF_CLEAR_LIST) Parent(#ButtonPanel) Displayposition(2) Tabposition(2) Buttonstate(Checked) Left(0) Top(0) Height(32)
+
+* ---------------------------------------------------------------------------------
+
+* Define the fields that are on the filter form
+
+* Search for field
+
+Define_Com Class(#UF_ELSRCH.EditField) Name(#uSearchFor) Parent(#DataItemPanel) Displayposition(1) Tabposition(1) Left(0) Captiontype(Caption) Height(48) Helperposition(None) Caption('Search for') Top(0) Width(321)
+
+* The list of fields to be searched, if the user checks them
+Define_Com Class(#PRIM_LIST) Name(#ListofSearchFieldNames) Displayposition(2) Left(0) Parent(#DataItemPanel) Tabposition(2) Top(73) Height(216) Width(321) Rowheight(22) Columnheaderheight(0) Rowlines(False) Checkboxes(True)
+Define_Com Class(#PRIM_LIST.String) Name(#ColumnUF_ELFLN1) Displayposition(2) Parent(#ListofSearchFieldNames) Source(#UF_ELFLN) Columnvisible(False)
+Define_Com Class(#PRIM_LIST.String) Name(#ColumnUF_ELFLD1) Columnwidth(88) Displayposition(3) Parent(#ListofSearchFieldNames) Source(#UF_ELFLD) Columnvisible(False)
+Define_Com Class(#PRIM_LIST.String) Name(#ColumnUF_ELDES1) Columnwidth(603) Displayposition(1) Parent(#ListofSearchFieldNames) Source(#UF_ELDES) Columnunits(Proportion)
+Define_Com Class(#PRIM_LIST.String) Name(#ColumnUF_ELFTP1) Columnwidth(88) Displayposition(4) Parent(#ListofSearchFieldNames) Source(#UF_ELFTP) Columnvisible(False)
+Define_Com Class(#PRIM_LIST.String) Name(#ColumnUF_ELFUNI1) Columnwidth(84) Displayposition(5) Parent(#ListofSearchFieldNames) Source(#UF_ELFUNI) Columnvisible(False)
+
+* Label instruction
+Define_Com Class(#PRIM_LABL) Name(#Label_Instruction) Caption('in these columns') Displayposition(3) Ellipses(Word) Height(25) Left(0) Parent(#DataItemPanel) Tabposition(3) Tabstop(False) Top(48) Verticalalignment(Center) Width(321)
+
+
+* ---------------------------------------------------------------------------------
+
+* The list used to receive data from the file access Server Module
+
+Def_List Name(#InstanceList_Columns) Fields(<<EXPAND_INSTANCELISTNAMES>>) Counter(#ListCount) Type(*Working) Entrys(*Max)
+
+* ================================================================================
+* Routines
+* ================================================================================
+
+
+Mthroutine Name(uInitialize) Options(*Redefine)
+
+* Do any initialization defined in the ancestor
+
+#Com_Ancestor.uInitialize
+
+#COM_OWNER.avFilterLocation := LEFT /* This filter is on the left */
+#COM_OWNER.avAllowLocationChange := True /* Allow user to move filter */
+
+Clr_List Named(#ListofSearchFieldNames)
+<<EXPAND_MAKE_SQL_WHERE>>Execute Subroutine(AddEntry) With_Parms((%SHORTNAME%) ('%DESCRIPTION%') (%LONGNAME%) (%TYPE%) (%ISUNICODE%))
+<<EXPAND_SQL_HIDE_SELECT>>
+
+* <your initialize logic goes here>
+
+Endroutine
+
+Subroutine Name(AddEntry) Parms((#UF_ELFLD *received) (#UF_ELDES *received) (#UF_ELFLN *received) (#UF_ELFTP *received) (#UF_ELFUNI *received))
+Add_Entry To_List(#ListofSearchFieldNames)
+Endroutine
+
+Mthroutine Name(HideUserSelect)
+#Label_Instruction.Visible := False
+#ListofSearchFieldNames.Visible := False
+Selectlist Named(#ListofSearchFieldNames)
+#ListofSearchFieldNames.CurrentItem.Checked := Checked
+Endselect
+Endroutine
+
+Evtroutine Handling(#Search_Button.Click)
+#Com_Owner.uSelectData
+Endroutine
+
+
+Mthroutine Name(uSelectData)
+
+* Define the data service
+Define_Com Class(<<SERVER_MODULE>>.Search) Name(#Search)
+
+#avFrameworkManager.avClearMessages Requester(#com_self)
+
+* Make a list of the fields the user chose, and send it to the server module
+Clr_List Named(#SearchFields)
+Selectlist Named(#ListofSearchFieldNames)
+If (#ListofSearchFieldNames.CurrentItem.Checked = Checked)
+Add_Entry To_List(#SearchFields)
+Endif
+Endselect
+
+* Go to busy state
+#COM_OWNER.avGotoBusyState Showbusytext('Searching') Animated(False)
+
+* Ask Server Module to get the data from the server
+#Search.ExecuteAsync Searchfields(#SearchFields) Instancelist_Columns(#InstanceList_Columns) Usearchfor(#uSearchFor)
+
+
+Evtroutine Handling(#Search.Completed)
+
+<<COND_MD>>If Cond(#CLEAR_LIST.CheckState *EQ Checked)
+<<COND_NOT_MD>>If Cond(#CLEAR_LIST.ButtonState *EQ Checked)
+#AVLISTMANAGER.ClearList
+Endif
+
+Selectlist Named(#InstanceList_Columns)
+
+* Add instance details to the instance list
+
+#AVLISTMANAGER.AddtoList <<EXPAND_ADDTOLIST>>
+
+Endselect
+
+Clr_List Named(#InstanceList_Columns)
+
+* Restore the saved key values
+Get_Entry Number(1) From_List(#SearchFields)
+
+* Get any warning messages issued by the search
+#avFrameworkManager.avReceiveSystemMessageQueue Requester(#Com_Self)
+
+* Go back to display free state
+#com_Owner.avGotoFreeState
+
+Endroutine
+
+* Handle a failure
+Evtroutine Handling(#Search.Failed) Handled(#Handled)
+#Handled := #AVFRAMEWORKMANAGER.avHandleServerError( #COM_OWNER )
+Endroutine
+
+Endroutine
+
+Evtroutine Handling(#ListofSearchFieldNames.ItemChanged #uSearchFor.Changed)
+Define_Com Class(#std_int) Name(#CheckedCount)
+Selectlist Named(#ListofSearchFieldNames)
+If (#ListofSearchFieldNames.CurrentItem.Checked = Checked)
+#CheckedCount += 1
+Endif
+Endselect
+
+If ((#CheckedCount > 0) And (#CheckedCount < 11) And (#uSearchFor *NE *blanks))
+#Search_Button.Enabled := True
+Else
+#Search_Button.Enabled := False
+Endif
+Endroutine
+
+End_Com

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-touch-fullscreen" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link href="/%{lansa_webalias}%/%{lansa_partition}%/tk2img01.png" rel="shortcut icon" type="image/x-icon">
+      <link href="/%{lansa_pwa_alias}%/lansa/sys/%{lansa_runtime}%/image/lansa_pwa_192.png"," rel="apple-touch-icon">
+      <script src="/%{lansa_webalias}%/%{lansa_runtime}%/material/material-components-web.min.js"></script>
+      <link href="/%{lansa_webalias}%/%{lansa_runtime}%/material/material-components-web.min.css" rel="stylesheet" type="text/css">
+      <link href="/%{lansa_webalias}%/%{lansa_runtime}%/style/roboto.css" rel="stylesheet" type="text/css">
+      <link href="/%{lansa_webalias}%/%{lansa_runtime}%/style/material-icons.css" rel="stylesheet" type="text/css">
+      <link href="/%{lansa_webalias}%/%{lansa_runtime}%/style/theme.css" rel="stylesheet" type="text/css">
+      <link href="/%{lansa_webalias}%/%{lansa_partition}%/tk2main.webmanifest?lcid=tk2main-1607113975" rel="manifest">
+   </head>
+   <body>
+      <script%{nonce_attr}%>
+         (function(){ window["LANSA"] = {nonce: "%{nonce}%"}; })();
+      </script>
+      <script src="/%{lansa_webalias}%/%{lansa_runtime}%/lansa.js"></script>
+      <script%{nonce_attr}%>
+         (function(LANSA){
+            if(!LANSA){document.write("Failed to load /%{lansa_webalias}%/%{lansa_runtime}%/lansa.js");return}
+            LANSA.init({part:"%{lansa_partition}%",sys:"%{lansa_webalias}%",ver:"1607113975",lang:{def:"ENG",code:{"ENG":"en","FRA":"fr"}},slz:0,md:2,ol:3,splash:{limg:"spin"}});%{lansa_webroutine_output}%
+            LANSA.showPage("TK2MAIN","TK2Main");
+         }(window["LANSA"]))
+      </script>
+      <noscript>This page requires JavaScript.</noscript>
+   </body>
+</html>

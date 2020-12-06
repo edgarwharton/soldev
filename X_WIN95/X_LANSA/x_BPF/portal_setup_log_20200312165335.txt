@@ -1,0 +1,143 @@
+2020-12-03 11:53:35.290000000 - 25 - Starting Setup Processing
+2020-12-03 11:53:35.306000000 - 87 - Project path set to - C:\Program Files (x86)\LANSA\LANSA\VersionControl\Partition (BPF)
+2020-12-03 11:53:35.311000000 - 31 - Database schema set to - BPFDTA
+2020-12-03 11:53:35.315000000 - 46 - Background task user profile set to - LANSA PM
+2020-12-03 11:53:35.319000000 - 1 - 
+
+2020-12-03 11:53:35.324000000 - 36 - Starting to copy system plugin files
+2020-12-03 11:53:35.329000000 - 106 - Starting plugins folder path as C:\Program Files (x86)\LANSA\LANSA\VersionControl\Partition (BPF)\Plugins\
+2020-12-03 11:53:35.338000000 - 123 - DirectoryWatcher.dll copied to C:\Program Files (x86)\LANSA\X_WIN95\X_LANSA\x_bpf\execute\DirectoryWatcher.dll successfully
+2020-12-03 11:53:35.345000000 - 35 - Finished coping system plugin files
+2020-12-03 11:53:35.351000000 - 1 - 
+
+2020-12-03 11:53:35.358000000 - 1 - 
+
+2020-12-03 11:53:35.365000000 - 46 - Starting to process language character changes
+2020-12-03 11:53:35.372000000 - 86 - The system field prefix is # and shipped field prefix is # so processing flag is FALSE
+2020-12-03 11:53:35.380000000 - 94 - The system dollar character is $ and shipped dollar character is $ so processing flag is FALSE
+2020-12-03 11:53:35.389000000 - 86 - The system AT character is @ and shipped AT character is @ so processing flag is FALSE
+2020-12-03 11:53:35.398000000 - 1 - 
+
+2020-12-03 11:53:35.407000000 - 52 - No processing of language character changes required
+2020-12-03 11:53:35.416000000 - 1 - 
+
+2020-12-03 11:53:35.425000000 - 31 - Starting to set database schema
+2020-12-03 11:53:35.435000000 - 101 - Setting files folder path as C:\Program Files (x86)\LANSA\LANSA\VersionControl\Partition (BPF)\Files\
+2020-12-03 11:53:35.447000000 - 1 - 
+
+2020-12-03 11:53:35.468000000 - 106 - Database table definition BPFTBL0001.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.480000000 - 1 - 
+
+2020-12-03 11:53:35.493000000 - 106 - Database table definition BPFTBL0002.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.504000000 - 1 - 
+
+2020-12-03 11:53:35.522000000 - 106 - Database table definition BPFTBL0003.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.533000000 - 1 - 
+
+2020-12-03 11:53:35.545000000 - 106 - Database table definition BPFTBL0004.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.556000000 - 1 - 
+
+2020-12-03 11:53:35.566000000 - 106 - Database table definition BPFTBL0005.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.577000000 - 1 - 
+
+2020-12-03 11:53:35.588000000 - 106 - Database table definition BPFTBL0006.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.599000000 - 1 - 
+
+2020-12-03 11:53:35.609000000 - 106 - Database table definition BPFTBL0007.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.620000000 - 1 - 
+
+2020-12-03 11:53:35.631000000 - 106 - Database table definition BPFTBL0008.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.642000000 - 1 - 
+
+2020-12-03 11:53:35.653000000 - 106 - Database table definition BPFTBL0009.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.663000000 - 1 - 
+
+2020-12-03 11:53:35.674000000 - 106 - Database table definition BPFTBL0010.BPFDTA.file.yml has the correct database schema so processing skipped
+2020-12-03 11:53:35.684000000 - 1 - 
+
+2020-12-03 11:53:35.695000000 - 32 - Finishing to set database schema
+2020-12-03 11:53:35.706000000 - 1 - 
+
+2020-12-03 11:53:35.716000000 - 1 - 
+
+2020-12-03 11:53:35.728000000 - 78 - Starting portal object compiles, note this process takes some time to complete
+2020-12-03 11:53:35.738000000 - 1 - 
+
+2020-12-03 11:53:35.749000000 - 171 - Setting compile format string to C:\Program Files (x86)\LANSA\LANSA\compile.cmd /PARTITION=BPF /OBJECTS=ALL /VCONLY=YES /OBJTYPE="%VALUE%" /BUILDID=BPF_COMPILE_%ID%_%DATE%
+2020-12-03 11:53:35.761000000 - 22 - Compiling portal files
+2020-12-03 11:53:35.772000000 - 1 - 
+
+2020-12-03 11:55:17.324000000 - 40 - Compiling portal files command completed
+2020-12-03 11:55:17.337000000 - 1 - 
+
+2020-12-03 11:55:17.350000000 - 22 - Compiling portal forms
+2020-12-03 11:55:17.365000000 - 1 - 
+
+2020-12-03 11:55:21.256000000 - 40 - Compiling portal forms command completed
+2020-12-03 11:55:21.272000000 - 49 - Compile Result - Total=2			Failed=0			Result=OK		
+2020-12-03 11:55:21.285000000 - 1 - 
+
+2020-12-03 11:55:21.296000000 - 31 - Compiling portal server modules
+2020-12-03 11:55:21.307000000 - 1 - 
+
+2020-12-03 11:55:36.933000000 - 49 - Compiling portal server modules command completed
+2020-12-03 11:55:36.954000000 - 50 - Compile Result - Total=10			Failed=0			Result=OK		
+2020-12-03 11:55:36.969000000 - 1 - 
+
+2020-12-03 11:55:36.984000000 - 24 - Compiling portal webpage
+2020-12-03 11:55:36.999000000 - 1 - 
+
+2020-12-03 11:55:39.164000000 - 42 - Compiling portal webpage command completed
+2020-12-03 11:55:39.198000000 - 49 - Compile Result - Total=1			Failed=0			Result=OK		
+2020-12-03 11:55:39.209000000 - 1 - 
+
+2020-12-03 11:55:39.224000000 - 24 - Compiling portal widgets
+2020-12-03 11:55:39.253000000 - 1 - 
+
+2020-12-03 11:55:40.834000000 - 42 - Compiling portal widgets command completed
+2020-12-03 11:55:40.849000000 - 49 - Compile Result - Total=2			Failed=0			Result=OK		
+2020-12-03 11:55:40.863000000 - 1 - 
+
+2020-12-03 11:55:40.874000000 - 24 - Compiling portal dialogs
+2020-12-03 11:55:40.886000000 - 1 - 
+
+2020-12-03 11:55:44.138000000 - 42 - Compiling portal dialogs command completed
+2020-12-03 11:55:44.155000000 - 49 - Compile Result - Total=6			Failed=0			Result=OK		
+2020-12-03 11:55:44.166000000 - 1 - 
+
+2020-12-03 11:55:44.177000000 - 22 - Compiling portal views
+2020-12-03 11:55:44.187000000 - 1 - 
+
+2020-12-03 11:56:07.169000000 - 40 - Compiling portal views command completed
+2020-12-03 11:56:07.186000000 - 50 - Compile Result - Total=73			Failed=0			Result=OK		
+2020-12-03 11:56:07.197000000 - 1 - 
+
+2020-12-03 11:56:07.209000000 - 31 - Compiling portal resuable parts
+2020-12-03 11:56:07.224000000 - 1 - 
+
+2020-12-03 11:56:47.091000000 - 49 - Compiling portal resuable parts command completed
+2020-12-03 11:56:47.107000000 - 51 - Compile Result - Total=189			Failed=0			Result=OK		
+2020-12-03 11:56:47.118000000 - 1 - 
+
+2020-12-03 11:56:47.129000000 - 40 - Compiling portal processes and functions
+2020-12-03 11:56:47.140000000 - 1 - 
+
+2020-12-03 11:57:08.337000000 - 44 - Compiling portal processes command completed
+2020-12-03 11:57:08.355000000 - 50 - Compile Result - Total=12			Failed=1			Result=ER		
+2020-12-03 11:57:08.365000000 - 1 - 
+
+2020-12-03 11:57:08.376000000 - 29 - Finish portal object compiles
+2020-12-03 11:57:08.386000000 - 1 - 
+
+2020-12-03 11:57:08.400000000 - 26 - Finished Setup Processing.
+2020-12-03 11:57:08.412000000 - 1 - 
+
+2020-12-03 11:57:08.457000000 - 123 - Data export path set to - C:\Program Files (x86)\LANSA\LANSA\VersionControl\Partition (BPF)\Data Exports\portal_export.json
+2020-12-03 11:57:08.511000000 - 31 - System settings importer loaded
+2020-12-03 11:57:31.931000000 - 1 - 
+
+2020-12-03 11:57:31.981000000 - 1 - 
+
+2020-12-03 11:57:31.997000000 - 1 - 
+
+2020-12-03 11:57:32.013000000 - 33 - Portal Setup and Import completed

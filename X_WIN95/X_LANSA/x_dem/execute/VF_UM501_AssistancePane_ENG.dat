@@ -1,0 +1,97 @@
+* -----------------------------------------------------------------------------------------------
+* This is the assistance pane for framework <<FRAMEWORK>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Windows desktop style controls.<<COND_NOT_MD>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Material Design style controls.<<COND_MD>>
+* It has some example appearance and behaviour which you can change as you see fit.
+* -----------------------------------------------------------------------------------------------
+* Press the Ctrl key, then mouse over the URL and click to open the information in a browser.
+* The arrow indicates the type of panel this reusable part is.
+*
+*    Slide in panels - https://%lansadocs%/lansa048/content/lansa/lansa048_6895.htm
+* => Assistance panel - https://%lansadocs%/lansa048/content/lansa/lansa048_6900.htm
+*    Settings panel -  https://%lansadocs%/lansa048/content/lansa/lansa048_6905.htm
+*    Background panel - https://%lansadocs%/lansa048/content/lansa/lansa048_6915.htm
+*
+* -----------------------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #VF_AC031O) Width(380) Height(480) Layoutmanager(#MainLayoutManager)
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#Prim_atlm) Name(#MainLayoutManager)
+Define_Com Class(#Prim_atli) Name(#MainLayoutItem_2) Manage(#Introduction) Parent(#MainLayoutManager) Attachment(Top) Marginbottom(8) Marginleft(8) Marginright(8) Margintop(8) Sizing(ContentWidthAndHeight)
+Define_Com Class(#Prim_atli) Name(#MainLayoutItem_3) Manage(#URL_List) Parent(#MainLayoutManager) Attachment(Center)
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#PRIM_MD.Label) Name(#Introduction) Captionalignment(TopLeft) Displayposition(1) Height(10) Left(8) Parent(#COM_OWNER) Tabposition(2) Top(8) Width(364) Wordwrap(True) Themedrawstyle('Heading3+ForegroundMediumPrimary')
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#PRIM_TBLO) Name(#LayoutList)
+Define_Com Class(#PRIM_TBLO.Column) Name(#LayoutListColumn1) Displayposition(1) Parent(#LayoutList)
+Define_Com Class(#PRIM_TBLO.Row) Name(#LayoutListRow1) Displayposition(1) Parent(#LayoutList)
+Define_Com Class(#PRIM_TBLO.Item) Name(#LayoutListItem1) Alignment(CenterLeft) Column(#LayoutListColumn1) Manage(#ListIcon) Marginleft(8) Parent(#LayoutList) Row(#LayoutListRow1) Sizing(None)
+Define_Com Class(#PRIM_TBLO.Item) Name(#LayoutListItem2) Alignment(CenterLeft) Column(#LayoutListColumn1) Manage(#ListPrimaryText) Marginleft(68) Marginright(16) Parent(#LayoutList) Row(#LayoutListRow1) Sizing(ContentHeightFitToWidth)
+
+Define_Com Class(#PRIM_MD.List) Name(#URL_List) Displayposition(2) Layoutmanager(#LayoutList) Left(0) Parent(#COM_OWNER) Rowheight(56) Tabposition(1) Themedrawstyle('Card') Top(26) Height(454) Width(380) Style(#NoBorders)
+Define_Com Class(#PRIM_MD.ListIcon) Name(#ListIcon) Displayposition(1) Height(40) Icon('image') Iconimagesizing(Cropped) Left(8) Parent(#URL_List) Tabposition(1) Themedrawstyle('MediumTitle+Rounded') Top(8) Width(40)
+Define_Com Class(#PRIM_MD.ListLabel) Name(#ListPrimaryText) Caption('Single line item') Displayposition(3) Height(24) Left(68) Parent(#URL_List) Tabposition(3) Themedrawstyle('Heading3+ForegroundMediumPrimary') Top(16) Width(296) Mouseoverstyle(#LikeURLOverStyle)
+
+Define_Com Class(#Prim_md.ListLabel) Name(#AssociatedURL) Parent(#URL_List) Visible(False) Displayposition(4) Tabposition(4)
+
+* ---------------------------------------------------------------------------------
+Define_Com Class(#Prim_Vs.Style) Name(#LikeURLOverStyle) Underline(True) Cursor(Hand)
+Define_Com Class(#Prim_Vs.Style) Name(#NoBorders) Borderbottom(0) Borderleft(0) Borderright(0) Bordertop(0)
+
+* ---------------------------------------------------------------------------------
+Mthroutine Name(uInitialize) Options(*REDEFINE)
+
+#COM_Ancestor.uInitialize
+
+* Set up the instruction line ..................
+#Introduction.Caption := ("Welcome to the &1 Assistance Center. Please select the topic or area you need assistance with ...").Substitute( #UFRAMEWORK.uCaption )
+
+* Here are some samples of where you (as a developer) might go for assistance .............
+
+#Com_Owner.AddAssistanceItem Caption("IBM Products and Services") Url("https://www.ibm.com/") Icon('computer')
+#Com_Owner.AddAssistanceItem Caption("Apple Products and Services") Url("https://www.apple.com/") Icon('desktop_mac')
+#Com_Owner.AddAssistanceItem Caption("Microsoft Products and Services") Url("https://www.microsoft.com/") Icon('desktop_windows')
+#Com_Owner.AddAssistanceItem Caption("LANSA Products and Services") Url("https://www.lansa.com/") Icon('fa-heart')
+#Com_Owner.AddAssistanceItem Caption("LANSA Documentation") Url("https://docs.lansa.com/") Icon('folder_shared')
+#Com_Owner.AddAssistanceItem Caption("Google Maps API Documentation") Url("https://developers.google.com/maps/documentation/") Icon('map')
+#Com_Owner.AddAssistanceItem Caption("Google Translate API Documentation") Url("https://cloud.google.com/translate/docs/") Icon('g_translate')
+
+* In a real application these would not be appropriate for your application end users, so they need to be replaced.
+* Typically they are replaced with links to your own application documentation and company web site(s).
+
+Endroutine
+
+* ---------------------------------------------------------------------------------
+Mthroutine Name(uTerminate) Options(*REDEFINE)
+
+Clr_List Named(#URL_List)
+
+#COM_Ancestor.uTerminate
+
+Endroutine
+
+* ---------------------------------------------------------------------------------
+Mthroutine Name(AddAssistanceItem)
+Define_Map For(*INPUT) Class(#Prim_DC.UnicodeString) Name(#Caption)
+Define_Map For(*INPUT) Class(#PRIM_ALPH) Name(#URL)
+Define_Map For(*INPUT) Class(#PRIM_ALPH) Name(#Icon)
+
+Add_Entry To_List(#URL_List)
+#ListIcon.CurrentItem.Icon := #Icon
+#ListPrimaryText.CurrentItem.Caption := #Caption
+#AssociatedURL.CurrentItem.Caption := #URL
+
+Endroutine
+
+* ---------------------------------------------------------------------------------
+Evtroutine Handling(#URL_List.ItemClick)
+
+If (#URL_List.CurrentItem *IsNot *null)
+#SYS_WEB.Navigate Url(#AssociatedURL.CurrentItem.Caption) Target(New)
+Endif
+
+Endroutine
+
+End_Com

@@ -1,0 +1,109 @@
+* ---------------------------------------------------------------------------------
+* This is a server module in framework <<FRAMEWORK>>.
+* It belongs to business object <<BUSINESS_OBJECT_CAPTION>>.
+* Its role is to return data to be used to draw a bar or pie chart. 
+* ---------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #PRIM_SRVM) Sessionidentifier('VLFONE')
+
+* ---------------------------------------------------------------------------------
+* Declare the shared server system manager. It must be declared exactly this
+* way in any server modules or reusable parts that want to use it.
+Define_Com Class(#<<SERVER_MANAGER>>) Name(#ServerSystemManager) Scope(*APPLICATION)
+* These strings coming from the logon validator. They allow the logon validator to pass information
+* into your shared server system manager. For example, an IBM i library list to be used, or
+* details about the currently logged on user or other system states.
+Define Field(#Persistent_ApplicationString1) Type(*NVARCHAR)
+Define Field(#Persistent_ApplicationString2) Type(*NVARCHAR)
+Define Field(#Persistent_ApplicationString3) Type(*NVARCHAR)
+Define Field(#Persistent_ApplicationString4) Type(*NVARCHAR)
+Define Field(#Persistent_ApplicationString5) Type(*NVARCHAR)
+Define Field(#Persistent_EventDetails) Reffld(#std_strng)
+
+Persist Fields(#Persistent_ApplicationString1 #Persistent_ApplicationString2 #Persistent_ApplicationString3 #Persistent_ApplicationString4 #Persistent_ApplicationString5 #Persistent_EventDetails)
+
+* ---------------------------------------------------------------------------------
+* Parameters and list used to communicate with the client
+Define Field(#Title) Type(*NVARCHAR) Length(256)
+Define Field(#RefreshCounter) Reffld(#STD_INT)
+Define Field(#ClientStatus) Type(*NVARCHAR) Length(256)
+Define Field(#BarColor) Type(*STRING) Length(10)
+
+Def_List Name(#ChartItems) Fields(#ChartItemCaption #ChartItemValue) Type(*WORKING) Entrys(*MAX)
+Define Field(#ChartItemCaption) Type(*NVARCHAR) Length(256)
+Define Field(#ChartItemValue) Type(*DEC) Length(15) Decimals(2)
+
+* ---------------------------------------------------------------------------------
+Srvroutine Name(GetChartContent) Session(*REQUIRED)
+Field_Map For(*INPUT) Field(#RefreshCounter)
+Field_Map For(*BOTH) Field(#ClientStatus)
+Field_Map For(*OUTPUT) Field(#Title)
+Field_Map For(*OUTPUT) Field(#BarColor)
+List_Map For(*OUTPUT) List(#ChartItems)
+
+* Invoke the server manager to set up the execution context for this server routine
+#ServerSystemManager.InitializeServiceRoutine Persistentstring1(#Persistent_ApplicationString1) Persistentstring2(#Persistent_ApplicationString2) Persistentstring3(#Persistent_ApplicationString3) Persistentstring4(#Persistent_ApplicationString4) Persistentstring5(#Persistent_ApplicationString5) Event_Component(#COM_OWNER) Persistent_Eventdetails(#Persistent_EventDetails)
+
+* -----------------------------------------------------------------------------------------------
+* NOTE: You will need to remove the following example code and insert your own code that extracts
+* your data and returns it to the client ready to be displayed as bar chart or a pie chart.
+* -----------------------------------------------------------------------------------------------
+
+* This example cycles through 3 sets of chart data, using the bidirectional #ClientStatus
+* field to decide which set of example data to cycle to next.
+
+Case (#ClientStatus.UpperCase)
+
+When (= EXAMPLE2)
+#BarColor := "#ffa726"
+#Title := "Unemployment in Nordic countries 2008"
+Execute Subroutine(AddItem) With_Parms("Denmark" 3)
+Execute Subroutine(AddItem) With_Parms("Finland" 6.1)
+Execute Subroutine(AddItem) With_Parms("Iceland" 3.4)
+Execute Subroutine(AddItem) With_Parms("Norway" 2.7)
+Execute Subroutine(AddItem) With_Parms("Sweden" 5.9)
+#ClientStatus := EXAMPLE3
+
+When (= EXAMPLE3)
+#BarColor := "#ff3a26"
+#Title := "Sugar in Breakfast Cereals (Teaspoons)"
+Execute Subroutine(AddItem) With_Parms("Cheerios" 0.88)
+Execute Subroutine(AddItem) With_Parms("Corn Flakes" 1.93)
+Execute Subroutine(AddItem) With_Parms("Coco Pops" 7.83)
+Execute Subroutine(AddItem) With_Parms("Froot Loops" 8.46)
+Execute Subroutine(AddItem) With_Parms("Raisin Bran" 6.35)
+Execute Subroutine(AddItem) With_Parms("Frosted Flakes" 7.12)
+Execute Subroutine(AddItem) With_Parms("Honey Smacks" 11.4)
+Execute Subroutine(AddItem) With_Parms("Rice Krispies" 2)
+Execute Subroutine(AddItem) With_Parms("Special K" 2.57)
+#ClientStatus := EXAMPLE1
+
+Otherwise
+#BarColor := "#267eff"
+#Title := "Sales of Widgets 2018"
+Execute Subroutine(AddItem) With_Parms("Jan" 800)
+Execute Subroutine(AddItem) With_Parms("Feb" 347)
+Execute Subroutine(AddItem) With_Parms("Mar" 987)
+Execute Subroutine(AddItem) With_Parms("Apr" 452)
+Execute Subroutine(AddItem) With_Parms("May" 678)
+Execute Subroutine(AddItem) With_Parms("Jun" 235)
+Execute Subroutine(AddItem) With_Parms("Jul" 678)
+Execute Subroutine(AddItem) With_Parms("Aug" 300)
+Execute Subroutine(AddItem) With_Parms("Sep" 670)
+Execute Subroutine(AddItem) With_Parms("Oct" 789)
+Execute Subroutine(AddItem) With_Parms("Nov" 456)
+Execute Subroutine(AddItem) With_Parms("Dec" 272)
+#ClientStatus := EXAMPLE2
+
+Endcase
+
+* Invoke the server manager to clean up and finalize the execution context for this server routine
+#ServerSystemManager.TerminateServiceRoutine Event_Component(#COM_OWNER)
+
+Endroutine
+
+* ------------------------------------------------------------------------------------------------
+Subroutine Name(AddItem) Parms((#ChartItemCaption *RECEIVED) (#ChartItemValue *RECEIVED))
+Add_Entry To_List(#ChartItems)
+Endroutine
+
+End_Com

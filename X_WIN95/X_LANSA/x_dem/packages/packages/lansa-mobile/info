@@ -1,0 +1,245 @@
+{
+  "packageId": "lansa-mobile",
+  "version": "1.0.5",
+  "timestamp": "Tue, 01 Dec 2020 19:25:23 GMT 5",
+  "objectLists": [
+    {
+      "id": "LXLB0002",
+      "name": "package: lansa-mobile",
+      "objects": [
+        {
+          "id": "XLBA0096",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0082",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0038",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0005",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0033",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0061",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0067",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0004",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0098",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0048",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0066",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0092",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0100",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XLBA0002",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0030",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0039",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0080",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0102",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0095",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0101",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0032",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0060",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0093",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0078",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0084",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0103",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0001",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0094",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0003",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0031",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0047",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0097",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0040",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XLBA0099",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0042",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        },
+        {
+          "id": "XLBA0049",
+          "type": "REUSABLEPART",
+          "platform": "BROWSER"
+        },
+        {
+          "id": "XLBA0058",
+          "type": "REUSABLEPART",
+          "platform": "CLASSIC"
+        }
+      ]
+    },
+    {
+      "id": "LXLB0004",
+      "name": "package: ex-lansa-mobile",
+      "objects": [
+        {
+          "id": "XEX00028",
+          "type": "SERVERMODULE"
+        },
+        {
+          "id": "XEX00045",
+          "type": "WEBPAGE"
+        },
+        {
+          "id": "XEX00053",
+          "type": "WEBWIDGET"
+        },
+        {
+          "id": "XEX00008",
+          "type": "EXTERNALRESOURCE",
+          "path": "internal-demo-util.js",
+          "folder": "PARTITIONVLWEB"
+        },
+        {
+          "id": "XEX00047",
+          "type": "WEBDIALOG"
+        },
+        {
+          "id": "XEX00050",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00052",
+          "type": "EXTERNALRESOURCE",
+          "path": "demo-device-sql-db.1.dbschema",
+          "folder": "PARTITIONEXECUTE"
+        },
+        {
+          "id": "XEX00048",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00049",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00051",
+          "type": "FIELD"
+        },
+        {
+          "id": "XEX00046",
+          "type": "SERVERMODULE"
+        }
+      ]
+    }
+  ]
+}

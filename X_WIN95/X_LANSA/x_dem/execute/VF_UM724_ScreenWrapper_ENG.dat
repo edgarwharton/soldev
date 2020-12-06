@@ -1,0 +1,127 @@
+* -------------------------------------------------------------------------------------------------------------					
+* This is a RAMP 5250 form wrapper in framework <<FRAMEWORK>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>>.
+* -------------------------------------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #VF_AC038O) Height(<<SCREEN_HEIGHT>>) Width(<<SCREEN_WIDTH>>) VerticalScroll(True) HorizontalScroll(True) Layoutmanager(*null) 
+
+* Define the VL fields that look like the original 5250 form.
+* Note how the ComponentTag() properties contains the aXes id of the 5250 source field.  
+
+<<EXPAND_RAMP_FIELD_DEFINITIONS>>
+
+* -------------------------------------------------------------------------------------------------------------
+* Method uInitialize : Invoked just once, when this wrapper is first created. 
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(uInitialize) Options(*REDEFINE)
+* Do the ancestor thing 
+#COM_ANCESTOR.uInitialize
+* Add your logic here ...
+Endroutine
+
+* -------------------------------------------------------------------------------------------------------------
+* Method uTerminate : Invoked just once, when this wrapper must shutdown immediately with no user interactions. 
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(uTerminate) Options(*REDEFINE)
+* Add your logic here ... 
+* Do the ancestor thing 
+#COM_ANCESTOR.uTerminate
+Endroutine
+
+* -------------------------------------------------------------------------------------------------------------
+* Method uInitializeForForm : Invoked the first time the aXes form named in the FormName parameter arrives in 
+* the 5250 stream. This potentially allows for multiple 5250 forms to be handled by a single wrapper.     
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(uInitializeForForm) Options(*REDEFINE)
+* This is called just the first time this form arrives  
+#COM_ANCESTOR.uInitializeForForm FormName(#FormName)
+* Define all the simple mappable fields on this form. 
+* Note that that by default this must include all simple output "labels" because it cannot be determined
+* at code generation time whether their content will change at execution time. You can improve this wrapper
+* by deleting the DEFINESIMPLEFIELD method calls for things are just "labels" and that will not change.    
+* Note: Columns in subfiles are (and must be) identified by the 5250 column that the field starts in.<<COND_SUBFILE>>    
+
+<<EXPAND_RAMP_FIELD_ENROLLMENT>>
+Endroutine
+
+* -------------------------------------------------------------------------------------------------------------
+* Method SHOW_CURRENT_FORM : Handle the underpinning 5250 form's arrival script executing a call to 
+* function SHOW_CURRENT_FORM(true,"XXXXXX"); where XXXXXX is the identifier of this VL component.     
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(SHOW_CURRENT_FORM) Options(*REDEFINE)
+* Clear all data from any VL-Web lists that represent subfiles <<COND_SUBFILE>> 
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=CLEARSUBFILES>>
+<<COND_SUBFILE>>
+* This will trigger RECEIVE_FORM_FIELD and RECEIVE_SUBFILE_CELL executions for received form data
+#COM_ANCESTOR.SHOW_CURRENT_FORM Formname(#FormName) Wrapperdata(#WrapperData)
+Endroutine
+
+* -------------------------------------------------------------------------------------------------------------
+* Method RECEIVE_FORM_FIELD : Receive simple fields from the 5250 form that has just arrived
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(RECEIVE_FORM_FIELD) Options(*REDEFINE)
+* Handle simple label output fields generically   
+If (#FieldReference *Is #Prim_labl)
+(#FieldReference *As #Prim_labl).Caption := #StringValue
+Return
+Endif
+If (#FieldReference *Is #Prim_MD.Label)
+(#FieldReference *As #Prim_MD.Label).Caption := #StringValue
+Return
+Endif
+* Otherwise, handle more complex input fields individually <<COND_SIMPLE_INPUTS>>
+* You may have to customize this data mapping logic to accomodate unusual formats or special cases in the source data.<<COND_SIMPLE_INPUTS>>    
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=RECEIVESIMPLEINPUTS>>
+ Endroutine
+
+* -------------------------------------------------------------------------------------------------------------
+* Method UnEditNumericString : Strip down and simplify a potentially masked 5250 field to a simple numeric
+* -------------------------------------------------------------------------------------------------------------
+Mthroutine Name(UnEditNumericString) Access(*PRIVATE)
+Define_Map For(*INPUT) Class(#Prim_alph) Name(#Value) Pass(*BY_REFERENCE)
+Define_Map For(*RESULT) Class(#Prim_alph) Name(#Result)
+#Result := #Value.RemoveCharacters( "$,CR/" ) /* Strip common EDTCDE() or EDTWRD() DDS options */
+Endroutine
+<<COND_SIMPLE_INPUTS>>
+* -------------------------------------------------------------------------------------------------------------<<COND_SIMPLE_INPUTS>>
+* Reflect changes made in simple input capable fields back into the underpinning 5250 form fields.<<COND_SIMPLE_INPUTS>>
+* Note how each input field has its own event routine watching for changes to content.<<COND_SIMPLE_INPUTS>>     
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=SENDSIMPLEINPUTS>>
+ <<COND_SUBFILE>>
+* ------------------------------------------------------------------------------------------------------------- <<COND_SUBFILE>>
+* Method - RECEIVE_SUBFILE_CELL : Receive subfile cells from the 5250 form that has arrived<<COND_SUBFILE>>
+* ------------------------------------------------------------------------------------------------------------- <<COND_SUBFILE>>
+Mthroutine Name(RECEIVE_SUBFILE_CELL) Options(*REDEFINE) <<COND_SUBFILE>>
+ <<COND_SUBFILE>>
+Case (#SubfileName) <<COND_SUBFILE>>
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=SETSUBFILEENTRY>>
+Otherwise <<COND_SUBFILE>>
+#Sys_web.alert Caption("Unknown subfile name " + #SubfileName + " received") <<COND_SUBFILE>>
+Endcase <<COND_SUBFILE>>
+ <<COND_SUBFILE>>
+* Receive an alphanumeric column <<COND_SUBFILE>> 
+If (#ColumnReference *Is #Prim_List.String) <<COND_SUBFILE>>
+(#ColumnReference *As #Prim_List.String).CurrentItem.Value := #StringValue <<COND_SUBFILE>>
+Return <<COND_SUBFILE>>
+EndIf <<COND_SUBFILE>>
+* Receive a numeric column <<COND_SUBFILE>>
+If (#ColumnReference *Is #Prim_List.Number) <<COND_SUBFILE>>
+#StringValue := #Com_Owner.UnEditNumericString(#StringValue) <<COND_SUBFILE>>
+If (#StringValue.IsNumber()) <<COND_SUBFILE>>
+(#ColumnReference *As #Prim_List.Number).CurrentItem.Value := #StringValue.AsNumber <<COND_SUBFILE>>
+Else <<COND_SUBFILE>>
+#SYS_WEB.alert Caption((#StringValue + " is not a valid number to map to " + #ColumnReference.Name)) <<COND_SUBFILE>>
+(#ColumnReference *As #Prim_List.Number).CurrentItem.Value := *SQLNULL <<COND_SUBFILE>>
+Endif <<COND_SUBFILE>>
+Return <<COND_SUBFILE>>
+Endif<<COND_SUBFILE>>
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=SubfieldDateReceivals>>
+* Unknown column type received <<COND_SUBFILE>>
+#Sys_web.alert Caption("Unknown subfile column type received") <<COND_SUBFILE>>
+Endroutine <<COND_SUBFILE>>
+<<COND_SUBFILE>>
+* -------------------------------------------------------------------------------------------------------------<<COND_SUBFILE>>
+* Reflect changes made in subfile columns back into the underpinning 5250 form<<COND_SUBFILE>> 
+* -------------------------------------------------------------------------------------------------------------<<COND_SUBFILE>>
+<<EXPAND_RAMP_FIELD_INTERNAL>> <<PARM1=MAPSUBFILES>>
+
+End_Com

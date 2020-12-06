@@ -1,0 +1,2 @@
+﻿LANSA.addComponent({id:"XLBA0084",nm:"XInternal_WebUtil",ot:"rp",tp:"Reusable Part",de:"[pkg-common] Internal",tl:14020401},function(l,oI,u){var cO=l.rC(oI,{an:"PRIM_OBJT",mt:{FatalError:{ps:{"Text":{pt:"i"}}}},co:function(){cO.aN.call(this);}});cO.mthFATALERROR=function(p0){var r=l.mR(this,cO,"FatalError",4);var P0=r.cP("TEXT","PRIM_DC","UnicodeString");P0.set(p0);r.ln=4;{r.ln=7;P0.set(l.add("Fatal error: ",P0.get()));r.ln=9;l.WEB().getConsole().mthLOG(P0.get(),"ERROR");r.ln=10;l.WEB().mthALERT(P0.get());
+r.ln=11;l.abort(P0);}r.ln=12;r.e();};},{rp:["PRIM_OBJT"]});

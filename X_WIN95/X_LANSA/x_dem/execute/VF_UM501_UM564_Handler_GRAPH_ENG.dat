@@ -1,0 +1,179 @@
+* ---------------------------------------------------------------------------------
+* This is a command handler in framework <<FRAMEWORK>>.
+* It belongs to business object <<BUSINESS_OBJECT_CAPTION>>.
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> 
+* ---------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #VF_AC010O) Height(417) Width(665) Layoutmanager(#MainAttachmentManager)
+
+* ----------------------------------------------------------------------------------
+Define_Com Class(#PRIM_ATLM) Name(#MainAttachmentManager) Marginbottom(4) Marginleft(4) Marginright(4) Margintop(4)
+Define_Com Class(#PRIM_ATLI) Name(#MainAttachmentManagerItem1) Attachment(Top) Manage(#TitlePanel) Parent(#MainAttachmentManager) Marginbottom(4)
+Define_Com Class(#PRIM_ATLI) Name(#MainAttachmentManagerItem2) Attachment(Center) Parent(#MainAttachmentManager) Manage(#Chart)
+
+Define_Com Class(#PRIM_ATLM) Name(#TitleAttachmentManager)
+Define_Com Class(#PRIM_ATLI) Name(#AttachLayout1Item1) Attachment(Center) Manage(#Title) Parent(#TitleAttachmentManager)
+Define_Com Class(#PRIM_ATLI) Name(#AttachLayout1Item2) Attachment(Right) Manage(#RefreshButton) Parent(#TitleAttachmentManager) Marginbottom(2) Marginright(2) Margintop(2) Marginleft(2)
+Define_Com Class(#PRIM_ATLI) Name(#AttachLayout1Item3) Attachment(Right) Manage(#BarChartButton) Parent(#TitleAttachmentManager) Marginbottom(2) Marginright(2) Margintop(2) Marginleft(2)
+Define_Com Class(#PRIM_ATLI) Name(#AttachLayout1Item4) Attachment(Right) Manage(#PieChartButton) Parent(#TitleAttachmentManager) Marginbottom(2) Marginright(2) Margintop(2) Marginleft(2)
+
+Define_Com Class(#PRIM_PANL) Name(#TitlePanel) Parent(#COM_OWNER) Displayposition(2) Tabposition(2) Left(4) Top(4) Width(657) Layoutmanager(#TitleAttachmentManager) Height(53)
+Define_Com Class(#Prim_md.Label) Name(#Title) Parent(#TitlePanel) Displayposition(1) Tabposition(1) Caption('Title') Top(0) Left(0) Height(53) Width(486) Themedrawstyle('Heading3+ForegroundMediumPrimary')
+
+Define_Com Class(#VF_BasicGoogleChart) Name(#Chart) Displayposition(1) Parent(#COM_OWNER) Tabposition(1) Tabstop(False) Width(657) Height(352) Top(61) Left(4)
+Define_Com Class(#PRIM_MD.RaisedButton) Name(#RefreshButton) Displayposition(4) Left(602) Parent(#TitlePanel) Tabposition(4) Top(2) Height(49) Icon('refresh') Width(53) Iconheight(30) Iconopacity(80)
+Define_Com Class(#PRIM_MD.RaisedButton) Name(#BarChartButton) Displayposition(3) Left(545) Parent(#TitlePanel) Tabposition(3) Top(2) Height(49) Icon('fa-bar-chart') Width(53) Iconheight(30) Iconopacity(80)
+Define_Com Class(#PRIM_MD.RaisedButton) Name(#PieChartButton) Displayposition(2) Left(488) Parent(#TitlePanel) Tabposition(2) Top(2) Height(49) Icon('pie_chart') Width(53) Iconheight(30) Iconopacity(80)
+
+Define_Com Class(#PRIM_PPNL.Menu) Name(#BarChartPopupMenu) Closeonclick(True) Menusizing(Popup) Width(100)
+Define_Com Class(#PRIM_PPNL.MenuItem) Name(#MenuItemHorizontal) Caption(*MTXTUF_HORIZONTAL) Displayposition(1) Parent(#BarChartPopupMenu) Tabposition(1) Tabstop(False) Themedrawstyle('Heading2') Height(36)
+Define_Com Class(#PRIM_PPNL.MenuItem) Name(#MenuItemVertical) Caption(*MTXTUF_VERTICAL) Displayposition(2) Parent(#BarChartPopupMenu) Tabposition(2) Tabstop(False) Top(25) Themedrawstyle('Heading2') Height(36)
+
+
+* ---------------------------------------------------------------------------------------------------------------------------
+
+Define_Com Class(<<SERVER_MODULE>>.GetChartContent) Name(#GetChartContent)
+Define Field(#RefreshCounter) Reffld(#STD_INT)
+Define Field(#ClientStatus) Type(*NVARCHAR) Length(256)
+Def_List Name(#ChartItems) Fields(#ChartItemCaption #ChartItemValue) Type(*WORKING) Entrys(*MAX)
+Define Field(#ChartItemCaption) Type(*NVARCHAR) Length(256)
+Define Field(#ChartItemValue) Type(*DEC) Length(15) Decimals(2)
+Define Field(#ChartisInitialized) Type(*BOOLEAN)
+Define_Com Class(#Prim_Timr) Name(#ChartLoadDelayTimer) Interval(0)
+
+* -------------------------------------------------------------------
+Mthroutine Name(uInitialize) Options(*REDEFINE)
+
+* Do any ancestor initialization
+#COM_ANCESTOR.uInitialize
+
+* Shield the chart content when being moved
+#COM_OWNER.avContentNeedsShielding := True
+
+Endroutine
+
+* -------------------------------------------------------------------
+Mthroutine Name(uTerminate) Options(*REDEFINE)
+
+* Do any ancestor initialization
+#COM_ANCESTOR.uTerminate
+
+* Shield the chart content when being moved
+#ChartLoadDelayTimer.Interval := 0
+
+Endroutine
+
+
+* -------------------------------------------------------------------
+Mthroutine Name(uExecute) Options(*REDEFINE)
+
+* Do any ancestor initialization
+#COM_ANCESTOR.uExecute Gotofreestate(#GotoFreeState) Switchcallerreference(#SwitchCallerReference)
+
+* Load the chart if the chart is ready to handle it
+#ChartLoadDelayTimer.Interval := 10
+
+Endroutine
+
+* ---------------------------------------------------------------------
+* Keep trying to load the chart until it has been initialized
+Evtroutine Handling(#ChartLoadDelayTimer.Tick)
+
+#ChartLoadDelayTimer.Interval := 0
+
+If (#ChartisInitialized)
+#COM_OWNER.GetChartContentfromServer
+Else
+#ChartLoadDelayTimer.Interval := 30
+Endif
+
+Endroutine
+
+* ---------------------------------------------------------------------
+* Chart signalled it has been initialized. We can now interact with it.
+Evtroutine Handling(#Chart.Initialize)
+
+* Now initialized and can be used
+#ChartisInitialized := True
+
+* Set initial chart type and details
+#Chart.Bars := "horizontal"
+#Chart.ChartType := "BAR"
+
+* Allow the user to refresh the charts from the server and to decide to show Pie or Bar style charts.
+* NOTE" By altering this visibilty you can lock this view into showing only  particlur type of chart or prevent refreshing.
+#RefreshButton.Visible := True
+#BarChartButton.Visible := True
+#PieChartButton.Visible := True
+
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Mthroutine Name(GetChartContentfromServer) Access(*PRIVATE)
+If (#chart.IsRealized)
+#RefreshCounter += 1
+#GetChartContent.ExecuteAsync Title(#Title.Caption) Refreshcounter(#RefreshCounter) Clientstatus(#ClientStatus) Chartitems(#ChartItems) Barcolor(#Chart.BarColor)
+Endif
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#GetChartContent.Failed) Handled(#Handled)
+#Handled := #AVFRAMEWORKMANAGER.avHandleServerError( #COM_OWNER )
+#Title := "Load Attempt Failed"
+#Chart.Visible := False
+Endroutine
+
+* --------------------------------------------
+Evtroutine Handling(#GetChartContent.Completed)
+
+If (#chart.IsRealized)
+
+#Chart.Visible := True
+#Chart.Clear
+
+Selectlist Named(#ChartItems)
+#Chart.Add Value(#ChartItemValue) Caption(#ChartItemCaption)
+Endselect
+
+Clr_List Named(#ChartItems)
+
+#Chart.DrawChart
+
+Endif
+
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#RefreshButton.Click)
+#ChartLoadDelayTimer.Interval := 10
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#BarChartButton.Click)
+#BarChartPopupMenu.ShowPopup
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#MenuItemHorizontal.Click)
+#Chart.Bars := "horizontal"
+#Chart.ChartType := "BAR"
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#MenuItemVertical.Click)
+#Chart.Bars := "vertical"
+#Chart.ChartType := "BAR"
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#PieChartButton.Click)
+#Chart.ChartType := "PIE"
+Endroutine
+
+* ---------------------------------------------------------------------------------------------------------------------------------
+Evtroutine Handling(#Chart.ItemGotSelection) Index(#Index) Caption(#Caption) Value(#Value)
+* #Sys_web.Alert Caption("You selected item " + #Index.AsString + " with caption " + #Caption + " and value " + #Value.AsString)
+Endroutine
+
+
+
+End_Com

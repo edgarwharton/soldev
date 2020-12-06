@@ -1,0 +1,10 @@
+BPFTBL0001 --- BPFPortalUserAccounts
+BPFTBL0002 --- BPFSystemCodes
+BPFTBL0003 --- BPFSessions
+BPFTBL0004 --- BPFSessionEvents
+BPFTBL0005 --- BPFPortalUserPreferences
+BPFTBL0006 --- BPFPortalUserProfile
+BPFTBL0007 --- BPFPortalDeletedAccounts
+BPFTBL0008 --- BPFPortalUserTransactionIDLog
+BPFTBL0009 --- BPFSessionServerRoutinesCalls
+BPFTBL0010 --- BPFBannedIPAddresses

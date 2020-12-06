@@ -1,0 +1,21 @@
+tables:
+  - uuid: ee1e37d7-8e0f-a3a6-a4d4-ab7e4458a3a4
+    name: Employee
+    columns:
+      - uuid: c1de61c4-f97a-bf01-a6ef-8a0839cd3b39
+        name: FirstName
+        isKey: false
+        dataType: 3
+      - uuid: 7f4711c0-261d-57c6-95d7-bdbe7a84be49
+        name: Surname
+        isKey: false
+        dataType: 3
+      - uuid: 498ba21a-092f-8a96-01d8-b1baa0042527
+        name: EmpNo
+        isKey: true
+        dataType: 3
+      - uuid: 1a9e7043-6d35-b118-2c84-747b8ab8302e
+        name: Photo
+        isKey: false
+        dataType: 4
+version: '1.0'

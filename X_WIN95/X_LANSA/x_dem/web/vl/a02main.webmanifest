@@ -1,0 +1,20 @@
+{
+   "short_name": "A02Main",
+   "name": "A02Main",
+   "start_url": "/%{lansa_webalias}%/%{lansa_partition}%/a02main.html",
+   "display": "standalone",
+   "scope": "/%{lansa_webalias}%/",
+   "background_color": "#FFFFFF",
+   "theme_color": "#FFFFFF",
+   "icons":
+   [
+      {
+         "src": "/%{lansa_webalias}%/%{lansa_runtime}%/image/lansa_pwa_192.png",
+         "sizes": "192x192"
+      },
+      {
+         "src": "/%{lansa_webalias}%/%{lansa_runtime}%/image/lansa_pwa_512.png",
+         "sizes": "512x512"
+      }
+   ]
+}

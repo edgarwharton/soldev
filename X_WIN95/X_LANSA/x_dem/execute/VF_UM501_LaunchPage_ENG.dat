@@ -1,0 +1,50 @@
+* --------------------------------------------------------------------------------------------------------------
+* This is the customized VLF-ONE entry point (or launch point) form for framework <<FRAMEWORK>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Windows desktop style controls.<<COND_NOT_MD>>
+* Created <<CREATEDDATE>> by <<CREATEDUSER>> with Material Design style controls.<<COND_MD>>  
+* --------------------------------------------------------------------------------------------------------------
+* 
+*         #### ##     ## ########   #######  ########  ########    ###    ##    ## ######## 
+*          ##  ###   ### ##     ## ##     ## ##     ##    ##      ## ##   ###   ##    ##    
+*          ##  #### #### ##     ## ##     ## ##     ##    ##     ##   ##  ####  ##    ##    
+*          ##  ## ### ## ########  ##     ## ########     ##    ##     ## ## ## ##    ##     
+*          ##  ##     ## ##        ##     ## ##   ##      ##    ######### ##  ####    ##    
+*          ##  ##     ## ##        ##     ## ##    ##     ##    ##     ## ##   ###    ##    
+*         #### ##     ## ##         #######  ##     ##    ##    ##     ## ##    ##    ##    
+* 
+* On the Resources tab (above) the resource script VLFONE_Engine.js must be specified before deployment.
+* See https://%lansadocs%/lansa048/content/lansa/lansa048_6910.htm
+*
+* Aspects of the behaviour of this component are assumed by the rest of VLF-ONE.
+* If you make any modifications to the events, methods, properties, structure or execution path or other
+* characteristics of this component in any way that is not documented you are risking future application failure.
+* 
+* ---------------------------------------------------------------------------------------------------------------
+Begin_Com Role(*EXTENDS #PRIM_WEB) Layoutmanager(#WebFormLayoutManager)
+
+Define_Com Class(#PRIM_ATLM) Name(#WebFormLayoutManager)
+Define_Com Class(#PRIM_ATLI) Name(#VLF_One_AttachItem) Parent(#WebFormLayoutManager) Attachment(Center) Manage(#VLF_ONE)
+Define_Com Class(#VF_AC006O) Name(#VLF_ONE) Parent(#COM_OWNER) Height(800) Width(1200)
+
+* -------------------------------------------------------------------------------------
+Evtroutine Handling(#COM_OWNER.CreateInstance)
+
+* For more details of the all options available here see - http://%lansadocs%/lansa048/index.htm#lansa/lansa048_8285.htm
+* To see the link, press the Ctrl key, then mouse over the URL and click to open the information in a browser.
+
+
+* Start VLF-ONE for your framework
+#VLF_ONE.uInitialize Frameworkidentifer("<<IDENTIFIER>>") Logonexpiry(90) Logonheaderpanelid("<<HEADER>>") Logontrailerpanelid("<<TRAILER>>") Logonhandlerid("VF_AC026O") Passwordchangerid("") Mtxtloaderid(UF_OMULTI) Themecustomizerid("") 
+
+Endroutine
+
+* -------------------------------------------------------------------------------------
+Evtroutine Handling(#SYS_WEB.CloseQuery)
+
+If (#VLF_ONE *IsNot *null)
+#VLF_ONE.uTerminate Possibletocancel(False) Browserisclosing(True)
+Endif
+
+Endroutine
+
+End_Com
