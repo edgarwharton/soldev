@@ -1,0 +1,46 @@
+LI	CB	 	 	 	 	 	 	 	 	 
+LI	LI	 	 	 	 	 	 	 	 	 
+DF	WO	a06about.js	 	 	A06ABOUT	L	 	 	 	 
+DF	WO	a06cha01.js	 	 	A06CHA01	R	 	 	 	 
+DF	WO	a06cha02.js	 	 	A06CHA02	R	 	 	 	 
+DF	WO	a06cha03.js	 	 	A06CHA03	R	 	 	 	 
+DF	WO	a06cha04.js	 	 	A06CHA04	R	 	 	 	 
+DF	WO	a06cha05.js	 	 	A06CHA05	R	 	 	 	 
+DF	WO	a06cha06.js	 	 	A06CHA06	R	 	 	 	 
+DF	WO	a06chart.js	 	 	A06CHART	K	 	 	 	 
+DF	WO	a06contac.js	 	 	A06CONTAC	K	 	 	 	 
+DF	WO	a06cont_1.js	 	 	A06CONT_1	L	 	 	 	 
+DF	WO	a06cont_3.js	 	 	A06CONT_3	L	 	 	 	 
+DF	WO	a06cont_4.js	 	 	A06CONT_4	K	 	 	 	 
+DF	WO	a06dashbo.js	 	 	A06DASHBO	K	 	 	 	 
+DF	WO	a06main.js	 	 	A06MAIN	O	 	 	 	 
+DF	WO	a06main.html	 	 	A06MAIN	O	 	 	 	 
+DF	WO	a06quickl.js	 	 	A06QUICKL	K	 	 	 	 
+DF	WO	a06signin.js	 	 	A06SIGNIN	L	 	 	 	 
+DF	WO	a06theme.js	 	 	A06THEME	T	 	 	 	 
+DF	WO	xattchdct.js	 	 	XATTCHDCT	R	 	 	 	 
+DF	WO	xattchdlg.js	 	 	XATTCHDLG	L	 	 	 	 
+DF	WO	xaddimage.png	 	 	XATTCHDLG	L	 	 	 	 
+DF	WO	xattchdwi.js	 	 	XATTCHDWI	G	 	 	 	 
+DF	WO	xgoogle06.js	 	 	XGOOGLE06	G	 	 	 	 
+DF	WO	xnoteedit.js	 	 	XNOTEEDIT	R	 	 	 	 
+DF	WO	xnotequil.js	 	 	XNOTEQUIL	G	 	 	 	 
+DF	WO	xnotesdlg.js	 	 	XNOTESDLG	L	 	 	 	 
+DF	EO	xvlsmtst.DLL	 	 	XVLSMTST	M	 	 	 	 
+DF	WO	xvlwebtst.js	 	 	XVLWEBTST	O	 	 	 	 
+DF	WO	xvlwebtst.html	 	 	XVLWEBTST	O	 	 	 	 
+DF	WO	xvlwebtst.appcache	 	 	XVLWEBTST	O	 	 	 	 
+DF	WO	xvlimage1.png	 	 	XVLWEBTST	O	 	 	 	 
+DF	WO	xslansaic.png	 	 	XVLWEBTST	O	 	 	 	 
+FD	SO	xattchmnt.CTD	I	 	XATTCHMNT	N	 	 	D	 
+FD	EO	xattchmnt.DLL	I	 	XATTCHMNT	N	 	 	D	 
+FD	SD	xattchmnt.DLL	I	 	XATTCHMNT	N	 	 	D	 
+FD	SO	xcontacts.CTD	I	 	XCONTACTS	N	 	 	D	 
+FD	EO	xcontacts.DLL	I	 	XCONTACTS	N	 	 	D	 
+FD	SD	xcontacts.DLL	I	 	XCONTACTS	N	 	 	D	 
+FD	SO	xnotes.CTD	I	 	XNOTES	N	 	 	D	 
+FD	EO	xnotes.DLL	I	 	XNOTES	N	 	 	D	 
+FD	SD	xnotes.DLL	I	 	XNOTES	N	 	 	D	 
+OT	OF	C:\PROGRA~2\LANSA\X_WIN95\X_LANSA\x_dem\WEB\VL\IMAGES\	 	PARTVLWEB	 	 	 	OTHER1	 	 
+LI	CA	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 
